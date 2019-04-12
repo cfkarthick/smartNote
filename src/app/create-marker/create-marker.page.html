@@ -1,0 +1,33 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<ion-content padding>
+  <ion-item *ngIf="imageFileName==''">
+    <ion-button  size="medium" color="secondary" expand="full" (click)="takePicture('gallery')">Get Image</ion-button>
+  </ion-item>
+
+  <ion-item *ngIf="imageFileName==''">
+    <ion-button size="medium" color="primary" expand="full" (click)="takePicture('cam')">Capture Image</ion-button>
+  </ion-item>
+
+  <ion-card *ngIf="imageFileName!=''">
+    <ion-card-header>
+     
+      <ion-card-title>Image Preview</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <img [src]="imageFileName" width="300" height="270" id="imgContainer">
+    </ion-card-content>
+  </ion-card>
+ 
+  <ion-item *ngIf="imageFileName!=''">
+    
+    <ion-button size="medium" color="primary" expand="full" (click)="SaveFile('img')">Save Image and Pattern File</ion-button>
+  </ion-item>
+
+  
+</ion-content>

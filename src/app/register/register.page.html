@@ -1,0 +1,124 @@
+<ion-content padding class="login auth-page">
+
+  <div class="auth-content">
+    <!-- Logo -->
+    <div padding-horizontal text-center>
+      <div class="logo"></div>
+      <h3 no-margin>
+        <ion-text color="light" class="app-brand">
+          <ion-text >Register</ion-text>
+        </ion-text>
+      </h3>
+    </div>
+
+    <!-- Register form -->
+    <form [formGroup]="onRegisterForm" class="list-form">
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="contact" item-start></ion-icon>
+          First Name
+        </ion-label>
+        <ion-input color="secondary" type="text" formControlName="firstName" [(ngModel)]="register.FirstName"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="onRegisterForm.get('firstName').touched && onRegisterForm.get('firstName').hasError('required')">
+        <ion-text color="warning">
+          This field is required
+        </ion-text>
+      </p>
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="contact" item-start></ion-icon>
+          Last Name
+        </ion-label>
+        <ion-input color="secondary" type="text" formControlName="lastName" [(ngModel)]="register.LastName"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="onRegisterForm.get('lastName').touched && onRegisterForm.get('lastName').hasError('required')">
+        <ion-text color="warning">
+          This field is required
+        </ion-text>
+      </p>
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="mail" item-start></ion-icon>
+          Email
+        </ion-label>
+        <ion-input color="secondary" type="email" formControlName="email" [(ngModel)]="register.EmailID"></ion-input>
+      </ion-item>
+
+      <p ion-text class="text08" *ngIf="onRegisterForm.get('email').touched && onRegisterForm.get('email').hasError('required')">
+        <ion-text color="warning">
+          This field is required
+        </ion-text>
+      </p>
+
+      <p ion-text class="text08" *ngIf="onRegisterForm.get('email').touched && onRegisterForm.get('email').hasError('email')">
+        <ion-text color="warning">
+          Please enter a valid email address
+        </ion-text>
+      </p>
+
+      <p ion-text class="text08" *ngIf="onRegisterForm.get('email').touched && onRegisterForm.get('email').hasError('notUnique')">
+        <ion-text color="warning">
+          The email Id has been already taken
+        </ion-text>
+      </p>
+
+  
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="lock" item-start></ion-icon>
+          Password
+        </ion-label>
+        <ion-input color="secondary" type="password" formControlName="password" [(ngModel)]="register.Password"></ion-input>
+      </ion-item>
+
+      <p ion-text color="warning" class="text08" *ngIf="onRegisterForm.get('password').touched && onRegisterForm.get('password').hasError('required')">
+        <ion-text color="warning">
+          This field is required
+        </ion-text>
+      </p>
+
+      <p ion-text color="warning" class="text08" *ngIf="onRegisterForm.get('password').touched && onRegisterForm.get('password').hasError('minlength')">
+        <ion-text color="warning">
+          The minimum length is 8 characters
+        </ion-text>
+      </p>
+
+      <p ion-text color="warning" class="text08" *ngIf="onRegisterForm.get('password').touched && onRegisterForm.get('password').hasError('pattern')">
+        <ion-text color="warning">
+          The Password should have numbers and characters
+        </ion-text>
+      </p>
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="people" item-start ></ion-icon>
+         Role
+        </ion-label>
+        
+        <ion-select formControlName="role" interface="action-sheet" [(ngModel)]="register.RoleId">
+          <ion-select-option *ngFor ="let role of rolesCollection" value="{{role.RoleId}}" color="light">{{role.RoleName}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <p ion-text class="text08" *ngIf="onRegisterForm.get('role').touched && onRegisterForm.get('role').hasError('required')">
+        <ion-text color="warning">
+          This field is required
+        </ion-text>
+      </p>
+    </form>
+
+    <div margin-top>
+      <ion-button icon-left size="medium" expand="full" shape="round" color="primary" (click)="signUp()" [disabled]="!onRegisterForm.valid"
+        tappable>
+        <ion-icon name="log-in"></ion-icon>
+        Sign Up
+      </ion-button>
+    </div>
+
+   
+
+  </div>
+</ion-content>

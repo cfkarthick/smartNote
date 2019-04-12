@@ -1,0 +1,58 @@
+
+
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-button color="primary" (click)="closeModal()">
+              <ion-icon name="close" color="light"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+      <ion-title>
+        Message Configuration
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+    
+      <ion-item margin-bottom>
+        <ion-label color="primary" stacked position="floating">
+          <ion-text color="dark" class="fw500">Name</ion-text>
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="getMsgbyID.MessageContent" inputmode=“text”></ion-input>
+      </ion-item>
+
+      <ion-item margin-bottom>
+          <ion-label color="primary" stacked position="floating">
+            <ion-text color="dark" class="fw500">Description</ion-text>
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="getMsgbyID.Description" inputmode=“text”></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label>is Role</ion-label>
+          <ion-toggle [(ngModel)]="getMsgbyID.IsRolemessage" checked="getMsgbyID.IsRolemessage" color="primary"></ion-toggle>
+        </ion-item>
+
+        <ion-item *ngIf="getMsgbyID.IsRolemessage">
+          <ion-label class="fw500" color="dark">Roles</ion-label>
+          <ion-select [(ngModel)]="getMsgbyID.RoleId">
+            <ion-select-option *ngFor ="let role of rolesCollection" value="{{role.RoleId}}">{{role.RoleName}}</ion-select-option>
+            
+          </ion-select>
+        </ion-item>
+
+        <ion-item *ngIf="!getMsgbyID.IsRolemessage">
+            <ion-label class="fw500" color="dark">Users</ion-label>
+            <ion-select [(ngModel)]="getMsgbyID.UserID" multi>
+              <ion-select-option *ngFor ="let user of usersCollection" >{{user.FirstName}} &nbsp; {{user.LastName}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+        
+        
+          <ion-button expand="full" color="primary" (click)="saveData()">Update</ion-button>
+
+          
+        </ion-content>
+  
