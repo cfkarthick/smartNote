@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-scan-note',
@@ -10,6 +12,7 @@ export class ScanNotePage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

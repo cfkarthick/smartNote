@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -37,6 +37,7 @@ import { IonicStorageModule } from '@ionic/storage';
 @NgModule({
   declarations: [AppComponent,CreateMessagePage,ModalPagePage],
   entryComponents: [CreateMessagePage,ModalPagePage],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule, ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
