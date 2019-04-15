@@ -4,7 +4,7 @@ import { NavController, MenuController, LoadingController } from '@ionic/angular
 import { AngularFirestore } from '@angular/fire/firestore';
 
 import { Device } from '@ionic-native/device/ngx';
-
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -17,6 +17,7 @@ export class RegisterPage implements OnInit {
   roles: any;
   rolesCollection:any[]=[];
   register:any;
+  userData: any;
 
   constructor(
     public navCtrl: NavController,
@@ -24,15 +25,18 @@ export class RegisterPage implements OnInit {
     public loadingCtrl: LoadingController,
     private formBuilder: FormBuilder,
     public fs: AngularFirestore,
-    
+    public cs: CookieService,
     
     private device: Device
   ) { 
     this.roles = fs.collection("Role").snapshotChanges();
+
+   
   }
 
   ionViewWillEnter() {
     this.menuCtrl.enable(false);
+    
   }
 
   ngOnInit() {

@@ -11,6 +11,7 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 import { AngularFirestore } from '@angular/fire/firestore';
 
 
+
 const STORAGE_KEY = 'my_images';
 
 @Component({
@@ -185,15 +186,17 @@ async SaveFile(){
       }
   
     this.MsgObserve.update({PatternFileObj : patternFileString, MarkerFileObj : this.imageFileName});
-    this.presentToastWithOptions(function(){this.navCtrl.navigateBack('msgConfig')});
+    this.presentToastWithOptions(this.navCtrl);
     
 
 }
 
-
+goBack(){
+  this.navCtrl.navigateBack('msgConfig');
+}
  
 
-async presentToastWithOptions(onComplete) {
+async presentToastWithOptions(nav) {
   const toast = await this.TC.create({
     message: 'Marker has been Configured Successfully',
     duration: 2000,
@@ -204,7 +207,7 @@ async presentToastWithOptions(onComplete) {
   toast.present()
   toast.onDidDismiss().then((data)=>{
     console.log(data);
-    onComplete();
+    nav.navigateBack('msgConfig');
   })
   
 }

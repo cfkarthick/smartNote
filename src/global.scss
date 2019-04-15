@@ -18,6 +18,13 @@ ion-item {
 ion-toolbar {
     --background: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary))
 }
+ion-menu-button{
+  color:white !important
+}
+
+ion-content {
+  padding-top:25px !important;
+}
 
 .app-brand {
   --color: #fff !important;

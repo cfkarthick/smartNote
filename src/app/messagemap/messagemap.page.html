@@ -1,8 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start" color="white">
+          <ion-menu-button ></ion-menu-button>
+          <ion-title class="app-brand">
+              Smart Note
+            </ion-title>
+      </ion-buttons>  
+  </ion-toolbar>
+</ion-header>
 
-<br>
-<br>
-<br>
-<ion-content>
+<ion-content padding>
 
     <ion-button color="light" (click)="createMsg()"> Create Message</ion-button>
     <ion-list>
@@ -18,8 +25,8 @@
                 </ion-label>
         
          
-              <ion-icon name="create" [routerLink]="'/marker/' + Message.id"></ion-icon> |
-              <ion-icon name="trash" (click)="deleteMessage($index)"></ion-icon> |
+              <ion-icon name="create" [routerLink]="'/menu/marker/' + Message.id"></ion-icon> |
+              <ion-icon name="trash" (click)="deleteMessage(Message.id)"></ion-icon> |
               <ion-icon name="download"></ion-icon> |
               <ion-icon name="cog" (click)="presentMessage(Message)"></ion-icon>
              
