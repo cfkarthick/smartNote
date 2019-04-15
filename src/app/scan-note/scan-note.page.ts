@@ -12,7 +12,8 @@ export class ScanNotePage implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+    console.log("test da")
+    // init renderer
   }
 
 }
