@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ScanNotePage } from './scan-note.page';
+import {ScriptServiceService} from '../script-service.service'
 
 const routes: Routes = [
   {

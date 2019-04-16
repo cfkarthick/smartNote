@@ -9,6 +9,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Device } from '@ionic-native/device/ngx';
 import { CookieService } from 'ngx-cookie-service';
 import { NavController} from '@ionic/angular';
+import {ScriptServiceService} from '../../src/app/script-service.service'
 
 @Component({
   selector: 'app-root',
@@ -23,9 +24,15 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private menu: MenuController,fs :AngularFirestore, 
-    device:Device,cs: CookieService,navCtrl:NavController
+    device:Device,cs: CookieService,navCtrl:NavController,
+    public ScriptService:ScriptServiceService
   ) {
+
+
     this.initializeApp();
+    this.ScriptService.loadScript('threex');
+    this.ScriptService.loadScript('stats');
+    this.ScriptService.loadScript('ar');
     console.log('appComponent')
     this.menuContent = {'Login':'/Login','Register':'/Register'}
 
