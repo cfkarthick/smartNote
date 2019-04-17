@@ -9,7 +9,9 @@ interface Scripts {
 
 export const ScriptStore: Scripts[] = [
  
-  { name: 'threex', src: '../assets/ar/scripts/threex-arpatternfile.js' }
+  { name: 'threex', src: '../assets/ar/scripts/threex.min.js' },
+  { name: 'stats', src: '../assets/ar/scripts/stats.min.js' },
+  { name: 'ar', src: '../assets/ar/scripts/ar.js' }
 ];
 
 declare var document: any;
