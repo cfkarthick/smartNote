@@ -78,6 +78,7 @@ export class MessagemapPage implements OnInit {
   deleteMessage(obj){
     this.Messages.splice(this.Messages.indexOf(obj),1);
     
+    //this.MsgObserve. (obj.id);
 
   }
 

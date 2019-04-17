@@ -19,10 +19,13 @@ const routes: Routes = [
       { path: 'login', loadChildren: '../login/login.module#LoginPageModule' },
       { path: 'register', loadChildren: '../register/register.module#RegisterPageModule' },
       { path: 'modal-page', loadChildren: '../modal-page/modal-page.module#ModalPagePageModule' },
-      { path: 'marker/:ID', loadChildren: '../create-marker/create-marker.module#CreateMarkerPageModule' }
+      { path: 'marker/:ID', loadChildren: '../create-marker/create-marker.module#CreateMarkerPageModule' },
+      {
+        path: 'createmsg', loadChildren: '../create-message/create-message.module#CreateMessagePageModule'
+      }
     ]
   },
-  //{ path:'', redirectTo:'/menu/register' }
+  //{ path:'', redirectTo:'/menu/login' }
 ];
 
 @NgModule({

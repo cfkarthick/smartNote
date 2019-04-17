@@ -1,9 +1,29 @@
+
 <ion-header>
-  <ion-toolbar>
-    <ion-title>createMessage</ion-title>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-button color="primary" (click)="closeModal()">
+              <ion-icon name="close" color="light"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+    <ion-title>Create Message</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-item margin-bottom>
+        <ion-label color="primary" stacked position="floating">
+          <ion-text color="dark" class="fw500">Title</ion-text>
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="msg.MessageContent" inputmode=“text”></ion-input>
+      </ion-item>
 
+      <ion-item margin-bottom>
+          <ion-label color="primary" stacked position="floating">
+            <ion-text color="dark" class="fw500">Message</ion-text>
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="msg.Description" inputmode=“text”></ion-input>
+        </ion-item>
+      
+          <ion-button expand="full" color="primary" (click)="CreateMessage()">Create</ion-button>
 </ion-content>
