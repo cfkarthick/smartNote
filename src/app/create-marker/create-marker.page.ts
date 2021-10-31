@@ -62,10 +62,7 @@ export class CreateMarkerPage implements OnInit {
     
   }
   
-
-  
-
-    //var rootRef = this.AFS.storage.ref().child('')
+// this is for test
  
 
  
