@@ -63,7 +63,6 @@ export class CreateMarkerPage implements OnInit {
   }
   
 // this is for test123
-// this is test commit
  
 
  
